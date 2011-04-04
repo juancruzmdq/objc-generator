@@ -10,6 +10,7 @@
 		8DD76F9A0486AA7600D96B5E /* objc-generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* objc-generator.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* objc-generator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* objc-generator.1 */; };
+		EE1F1D83134A5DE100A3B6FF /* CommandLine.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1D82134A5DE100A3B6FF /* CommandLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		32A70AAB03705E1F00C91783 /* objc-generator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objc-generator_Prefix.pch"; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* objc-generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "objc-generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* objc-generator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "objc-generator.1"; sourceTree = "<group>"; };
+		EE1F1D81134A5DE100A3B6FF /* CommandLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLine.h; sourceTree = "<group>"; };
+		EE1F1D82134A5DE100A3B6FF /* CommandLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 		08FB7794FE84155DC02AAC07 /* objc-generator */ = {
 			isa = PBXGroup;
 			children = (
+				EE1F1D7F134A5DE100A3B6FF /* External */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -87,6 +91,23 @@
 				C6859EA3029092ED04C91782 /* objc-generator.1 */,
 			);
 			name = Documentation;
+			sourceTree = "<group>";
+		};
+		EE1F1D7F134A5DE100A3B6FF /* External */ = {
+			isa = PBXGroup;
+			children = (
+				EE1F1D80134A5DE100A3B6FF /* CommandLine */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		EE1F1D80134A5DE100A3B6FF /* CommandLine */ = {
+			isa = PBXGroup;
+			children = (
+				EE1F1D81134A5DE100A3B6FF /* CommandLine.h */,
+				EE1F1D82134A5DE100A3B6FF /* CommandLine.m */,
+			);
+			path = CommandLine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9A0486AA7600D96B5E /* objc-generator.m in Sources */,
+				EE1F1D83134A5DE100A3B6FF /* CommandLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
