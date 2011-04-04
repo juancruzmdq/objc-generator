@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'objc-generator' target in the 'objc-generator' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
