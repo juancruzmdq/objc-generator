@@ -74,7 +74,7 @@
 
 - (NSString *)quotedAsCodeString
 {
-    return [NSString stringWithFormat:@"@\"%@\"", self];
+    return [NSString stringWithFormat:@"NSLocalizedString(@\"%@\",@\"%@\")", self,self];
 }
 
 - (NSString *)capitalize
