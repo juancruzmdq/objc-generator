@@ -71,7 +71,10 @@
         id constructor = [object objectForKey:@"constructor"];
         id frame = [object objectForKey:@"frame"];
         NSString *instanceName = [self instanceNameForObject:[_parsedStructure objectForKey:parsedView]];
-        [_constuctorCode appendFormat:@"%@ *%@ = %@;\n", klass, instanceName, constructor];
+        
+		//Removed line to fix issue 2
+		//[_constuctorCode appendFormat:@"%@ *%@ = %@;\n", klass, instanceName, constructor];
+		[_constuctorCode appendFormat:@"%@ = %@;\n", instanceName, constructor];
 		
         switch (self.codeStyle)
         {
