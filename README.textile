@@ -1,6 +1,7 @@
-h1. objc-generator
+h1. objc-generator 
 
-. . . . . . . . . . 
+The purpose of this project is to have a tool, that simplifies the daily work on the integration of XIB files, created using the Interface Builder, 
+with the Controllers of the project views.
 
 h2. External Libraries
 
@@ -10,5 +11,5 @@ nib2objc Classes Procesor - Written by Adrian Kosmaczewski 2009
 h2. Example of Use
 
 <pre>
-../build/Debug/objc-generator TestViewController.xib -c TestViewController -p exampleProject -b JuanCruzGhigliani -d 02/04/11 -n MyCompany -i UIViewController 
+objc-generator TestViewController.xib -c TestViewController -p exampleProject -b JuanCruzGhigliani -d 02/04/11 -n MyCompany -i UIViewController 
 </pre>
