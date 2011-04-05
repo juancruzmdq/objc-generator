@@ -1,4 +1,0 @@
-* corregit IBOutlet
-* Corregir nombre de clase, falta guion bajo
-No parsear clases desconocidas (NULL)
-Remover la declaracion de tipo de clase dentro del constructor

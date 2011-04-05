@@ -1,0 +1,3 @@
+# Example
+
+../build/Debug/objc-generator TestViewController.xib -c TestViewController -p exampleProject -b JuanCruzGhigliani -d 02/04/11 -n MyCompany -i UIViewController 
