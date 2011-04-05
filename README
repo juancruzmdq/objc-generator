@@ -1,3 +1,13 @@
-# Example
+h1. objc-generator
 
+. . . . . . . . . . 
+
+h2. External Libraries
+CommandLine - Written by Ivo Kendra, 2009
+nib2objc Classes Procesor - Written by Adrian Kosmaczewski 2009
+
+h2. Example of Use
+
+<pre>
 ../build/Debug/objc-generator TestViewController.xib -c TestViewController -p exampleProject -b JuanCruzGhigliani -d 02/04/11 -n MyCompany -i UIViewController 
+</pre>
