@@ -121,10 +121,12 @@
 	
 	for (NSDictionary *item in xibHierarchy)
     {
-		NSLog(@"Main Loop Item");
         int currentView = [[item objectForKey:@"object-id"] intValue];
-        [_mainStructure setObject:[self parseChildren:item ofCurrentView:currentView withObjects:xibObjects] 
-							   forKey:[NSString stringWithFormat:@"%i",currentView] ];
+		id parseChildrenResult = [self parseChildren:item ofCurrentView:currentView withObjects:xibObjects] ;
+		
+		if (parseChildrenResult != nil) {
+			[_mainStructure setObject:parseChildrenResult forKey:[NSString stringWithFormat:@"%i",currentView] ];
+		}
     }
 	
 	
@@ -151,28 +153,32 @@
 	
 	[auxHierarchy release];
 	
-	NSLog(@"Pre-Parse Object");
-	[resultDict setObject:[self parseObject:currentViewObject withHierarchy:dict] 
-				   forKey:@"parsedObject"];
-	NSLog(@"Post-Parse Object");
+	id parseObjectResult = [self parseObject:currentViewObject withHierarchy:dict] ;
+	if (parseObjectResult != nil) {
+		[resultDict setObject:parseObjectResult forKey:@"parsedObject"];
+		
+		NSMutableDictionary * childrens = [[NSMutableDictionary alloc]init];
+		NSArray *children = [dict objectForKey:@"children"];
+		if (children != nil)
+		{
+			for (NSDictionary *subitem in children)
+			{
+				NSLog(@"Recursive Loop Item");
+				//continuo recursivo con los hijos	
+				[childrens setObject:[self parseChildren:subitem ofCurrentView:[[subitem objectForKey:@"object-id"] intValue] withObjects:nibObjects]
+							  forKey:[subitem objectForKey:@"object-id"]];
+			}
+		}
+		
+		
+		[resultDict setObject:childrens forKey:@"childrens"];
+		
+		return [resultDict autorelease];
+	}
 	
-	NSMutableDictionary * childrens = [[NSMutableDictionary alloc]init];
-    NSArray *children = [dict objectForKey:@"children"];
-    if (children != nil)
-    {
-        for (NSDictionary *subitem in children)
-        {
-			NSLog(@"Recursive Loop Item");
-			//continuo recursivo con los hijos	
-            [childrens setObject:[self parseChildren:subitem ofCurrentView:[[subitem objectForKey:@"object-id"] intValue] withObjects:nibObjects]
-						  forKey:[subitem objectForKey:@"object-id"]];
-        }
-    }
-	
-	
-	[resultDict setObject:childrens forKey:@"childrens"];
-	
-	return [resultDict autorelease];
+	return nil;
+
+
 }
 
 
@@ -184,14 +190,13 @@
 	NSMutableDictionary *dict = nil;
 
 	if (processor == nil){
-		dict = [[NSMutableDictionary alloc] init];
 #ifdef NDEBUG
+		dict = [[NSMutableDictionary alloc] init];
 		NSLog(@"Parsing Debug Class Object");
 		[dict setObject:klass forKey:@"// unknown class"];
 		[_objects setObject:dict forKey:[hierarchy objectForKey:@"object-id"]];
 #endif
 	}else{
-		NSLog(@"Parsing Class Object");
 		dict = [[processor processObject:object] retain];
 		[_objects setObject:dict forKey:[hierarchy objectForKey:@"object-id"]];
 	}

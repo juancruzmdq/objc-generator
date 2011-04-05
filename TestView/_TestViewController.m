@@ -10,12 +10,10 @@
 
 @implementation _TestViewController
 
-@synthesize File's Owner;
 @synthesize uiview1;
 @synthesize btnMainAction;
 @synthesize lblOutput;
 @synthesize tfInput;
-@synthesize proxyobject-2;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
@@ -28,12 +26,10 @@ return self;
 
 
 - (void)dealloc {
-self.File's Owner = nil;
 self.uiview1 = nil;
 self.btnMainAction = nil;
 self.lblOutput = nil;
 self.tfInput = nil;
-self.proxyobject-2 = nil;
 
 [super dealloc];
 }
