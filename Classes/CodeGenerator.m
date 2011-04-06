@@ -104,35 +104,29 @@
         for (NSString *key in object)
         {
             id value = [object objectForKey:key];
-			if ([value isKindOfClass:[OGInstruction class]]) {
-				value = ((OGInstruction*)value).instruction;
-			}
             if (![key hasPrefix:@"__method__"] && ![key isEqualToString:@"frame"] 
                 && ![key isEqualToString:@"constructor"] && ![key isEqualToString:@"class"]
                 && ![key hasPrefix:@"__helper__"])
             {
-				id valueAux = nil;
                 switch (self.codeStyle) 
                 {
                     case NibProcessorCodeStyleProperties:
-                        [_constuctorCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, value];
-						valueAux = [object objectForKey:key];
-						if ([valueAux isKindOfClass:[OGInstruction class]]) {
-							if (((OGInstruction*)valueAux).localized) {
-								[_localizeCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)valueAux).instruction];
+                        [_constuctorCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)value).instruction];
+
+							if (((OGInstruction*)value).localized) {
+								[_localizeCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)value).instruction];
 							}
-						}
+						
 
                         break;
                         
                     case NibProcessorCodeStyleSetter:
-                        [_constuctorCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], value];
-						valueAux = [object objectForKey:key];
-						if ([valueAux isKindOfClass:[OGInstruction class]]) {
-							if (((OGInstruction*)valueAux).localized) {
-								[_localizeCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)valueAux).instruction];
+                        [_constuctorCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)value).instruction];
+
+							if (((OGInstruction*)value).localized) {
+								[_localizeCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)value).instruction];
 							}
-						}
+
 						
                         break;
                         
@@ -146,18 +140,15 @@
         for (NSString *key in object)
         {
             id value = [object objectForKey:key];
-			if ([value isKindOfClass:[OGInstruction class]]) {
-				value = ((OGInstruction*)value).instruction;
-			}
+
             if ([key hasPrefix:@"__method__"])
             {
-                [_constuctorCode appendFormat:@"[%@ %@];\n", instanceName, value];
-				id valueAux = [object objectForKey:key];
-				if ([valueAux isKindOfClass:[OGInstruction class]]) {
-					if (((OGInstruction*)valueAux).localized) {
-						[_localizeCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)valueAux).instruction];
+                [_constuctorCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)value).instruction];
+
+					if (((OGInstruction*)value).localized) {
+						[_localizeCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)value).instruction];
 					}
-				}
+
             }
         }
 
