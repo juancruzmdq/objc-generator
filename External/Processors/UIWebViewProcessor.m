@@ -25,11 +25,11 @@
 {
     if ([item isEqualToString:@"scalesPageToFit"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"detectsPhoneNumbers"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

@@ -25,19 +25,19 @@
 {
     if ([item isEqualToString:@"currentPage"])
     {
-        [output setObject:[value intString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value intString]] forKey:item];
     }
     else if ([item isEqualToString:@"numberOfPages"])
     {
-        [output setObject:[value intString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value intString]] forKey:item];
     }
     else if ([item isEqualToString:@"hidesForSinglePage"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"defersCurrentPageDisplay"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

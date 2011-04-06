@@ -46,6 +46,7 @@
 		EE1F1F45134A9A3900A3B6FF /* XibParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1F44134A9A3900A3B6FF /* XibParser.m */; };
 		EE1F1F4E134A9BC200A3B6FF /* FilesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1F4D134A9BC200A3B6FF /* FilesGenerator.m */; };
 		EE1F1F51134A9CC000A3B6FF /* CodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1F50134A9CC000A3B6FF /* CodeGenerator.m */; };
+		EE1F233E134CE43B00A3B6FF /* OGInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F233D134CE43B00A3B6FF /* OGInstruction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,6 +140,8 @@
 		EE1F1F4D134A9BC200A3B6FF /* FilesGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesGenerator.m; sourceTree = "<group>"; };
 		EE1F1F4F134A9CC000A3B6FF /* CodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerator.h; sourceTree = "<group>"; };
 		EE1F1F50134A9CC000A3B6FF /* CodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeGenerator.m; sourceTree = "<group>"; };
+		EE1F233C134CE43B00A3B6FF /* OGInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGInstruction.h; path = Helpers/OGInstruction.h; sourceTree = "<group>"; };
+		EE1F233D134CE43B00A3B6FF /* OGInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGInstruction.m; path = Helpers/OGInstruction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 		EE1F1E5E134A98C100A3B6FF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EE1F233B134CE3AB00A3B6FF /* Helpers */,
 				EE1F1F43134A9A3900A3B6FF /* XibParser.h */,
 				EE1F1F44134A9A3900A3B6FF /* XibParser.m */,
 				EE1F1F4F134A9CC000A3B6FF /* CodeGenerator.h */,
@@ -307,6 +311,15 @@
 				EE1F1F21134A9A0300A3B6FF /* UIWebViewProcessor.m */,
 			);
 			path = Processors;
+			sourceTree = "<group>";
+		};
+		EE1F233B134CE3AB00A3B6FF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EE1F233C134CE43B00A3B6FF /* OGInstruction.h */,
+				EE1F233D134CE43B00A3B6FF /* OGInstruction.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +409,7 @@
 				EE1F1F45134A9A3900A3B6FF /* XibParser.m in Sources */,
 				EE1F1F4E134A9BC200A3B6FF /* FilesGenerator.m in Sources */,
 				EE1F1F51134A9CC000A3B6FF /* CodeGenerator.m in Sources */,
+				EE1F233E134CE43B00A3B6FF /* OGInstruction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,19 +25,19 @@
 {
     if ([item isEqualToString:@"showsUserLocation"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     if ([item isEqualToString:@"mapType"])
     {
-        [output setObject:[value mapTypeString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value mapTypeString]] forKey:item];
     }
     else if ([item isEqualToString:@"scrollEnabled"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"zoomEnabled"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

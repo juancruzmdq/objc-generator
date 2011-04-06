@@ -32,15 +32,15 @@
     id object = nil;
     if ([item isEqualToString:@"class"])
     {
-        object = [self getProcessedClassName];
+        object = [OGInstruction initWithString:[self getProcessedClassName]];
     }
     else if ([item isEqualToString:@"title"])
     {
-        object = [value quotedAsCodeString];
+        object = [OGInstruction initWithStringLocalized:[value quotedAsCodeString]];
     }
     else if ([item isEqualToString:@"prompt"])
     {
-        object = [value quotedAsCodeString];
+        object = [OGInstruction initWithStringLocalized:[value quotedAsCodeString]];
     }
     if (object != nil)
     {

@@ -27,23 +27,23 @@
 {
     if ([item isEqualToString:@"text"])
     {
-        [output setObject:[value quotedAsCodeString] forKey:item];
+        [output setObject:[OGInstruction initWithStringLocalized:[value quotedAsCodeString]] forKey:item];
     }
     else if ([item isEqualToString:@"textAlignment"])
     {
-        [output setObject:[value textAlignmentString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value textAlignmentString]] forKey:item];
     }
     else if ([item isEqualToString:@"font"])
     {
-        [output setObject:[value fontString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value fontString]] forKey:item];
     }
     else if ([item isEqualToString:@"textColor"])
     {
-        [output setObject:[value colorString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value colorString]] forKey:item];
     }
     else if ([item isEqualToString:@"editable"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

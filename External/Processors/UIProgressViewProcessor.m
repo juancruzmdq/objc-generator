@@ -31,11 +31,11 @@
 {
     if ([item isEqualToString:@"progress"])
     {
-        [output setObject:[value floatString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value floatString]] forKey:item];
     }
     else if ([item isEqualToString:@"progressViewStyle"])
     {
-        [output setObject:[value progressViewStyleString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value progressViewStyleString]] forKey:item];
     }
     else
     {

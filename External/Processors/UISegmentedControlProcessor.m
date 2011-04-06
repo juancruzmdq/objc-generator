@@ -23,7 +23,7 @@
 }
 
 - (NSString *)constructorString
-{
+{   //TODO: Create Localized strings
     NSString *items = [[self.input objectForKey:@"segmentTitles"] componentsJoinedByString:@"\", @\""];
     return [NSString stringWithFormat:@"[[%@ alloc] initWithItems:[NSArray arrayWithObjects:%@, nil]]", [self getProcessedClassName], [items quotedAsCodeString]];
 }
@@ -32,15 +32,15 @@
 {
     if ([item isEqualToString:@"segmentControlStyle"])
     {
-        [output setObject:[value segmentedControlStyleString] forKey:@"segmentedControlStyle"];
+        [output setObject:[OGInstruction initWithString:[value segmentedControlStyleString]] forKey:@"segmentedControlStyle"];
     }
     else if ([item isEqualToString:@"selectedSegmentIndex"])
     {
-        [output setObject:[value intString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value intString]] forKey:item];
     }
     else if ([item isEqualToString:@"momentary"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

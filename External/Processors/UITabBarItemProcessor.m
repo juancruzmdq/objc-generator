@@ -45,7 +45,7 @@
 {
     if ([item isEqualToString:@"badgeValue"])
     {
-        [output setObject:[value quotedAsCodeString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value quotedAsCodeString]] forKey:item];
     }
     else
     {

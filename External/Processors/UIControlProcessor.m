@@ -21,23 +21,23 @@
 {
     if ([item isEqualToString:@"contentHorizontalAlignment"])
     {
-        [output setObject:[value contentHorizontalAlignmentString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value contentHorizontalAlignmentString]] forKey:item];
     }
     else if ([item isEqualToString:@"contentVerticalAlignment"])
     {
-        [output setObject:[value contentVerticalAlignmentString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value contentVerticalAlignmentString]] forKey:item];
     }
     else if ([item isEqualToString:@"enabled"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"highlighted"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"selected"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]]forKey:item];
     }
     else
     {

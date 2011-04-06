@@ -27,6 +27,11 @@
 	// Let's print everything as source code
 	[_constuctorCode release];
 	_constuctorCode = [[NSMutableString alloc] init];
+	
+	[_localizeCode release];
+	_localizeCode = [[NSMutableString alloc] init];
+	
+	
 	[self generateCodeForObject:[self.fileStructure objectForKey:@"com.objc-generator.structure"] withParent:nil];
 	NSLog(@"Creating Constructors code");
 	//Contructor definition
@@ -39,13 +44,14 @@
 						   forKey:@"__CodeInit__"];	
 		
 
-	[self.codeStructure setObject:@"- (id)initWithNibName:(NSString *)nibNameOrNil\n"
+	[self.codeStructure setObject:[NSString stringWithFormat:@"- (id)initWithNibName:(NSString *)nibNameOrNil\n"
 		 @"bundle:(NSBundle *)nibBundleOrNil {\n"
 		 @"if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {\n"
+		 @"%@\n"
 		 @"\n"
 		 @"}\n"
 	 @"return self;\n"
-	 @"}\n"
+	 @"}\n",_localizeCode]
 						   forKey:@"__XibInit__"];		
 	
 }
@@ -60,6 +66,9 @@
         for (NSString *key in object)
         {
             id value = [object objectForKey:key];
+			if ([value isKindOfClass:[OGInstruction class]]) {
+				value = ((OGInstruction*)value).instruction;
+			}
             if ([key hasPrefix:@"__helper__"])
             {
                 [_constuctorCode appendString:value];
@@ -67,7 +76,7 @@
             }
         }
         // Constructor and frame
-        id klass = [object objectForKey:@"class"];
+        id klass = ((OGInstruction*)[object objectForKey:@"class"]).instruction;
         id constructor = [object objectForKey:@"constructor"];
         id frame = [object objectForKey:@"frame"];
         NSString *instanceName = [self instanceNameForObject:[_parsedStructure objectForKey:parsedView]];
@@ -95,18 +104,36 @@
         for (NSString *key in object)
         {
             id value = [object objectForKey:key];
+			if ([value isKindOfClass:[OGInstruction class]]) {
+				value = ((OGInstruction*)value).instruction;
+			}
             if (![key hasPrefix:@"__method__"] && ![key isEqualToString:@"frame"] 
                 && ![key isEqualToString:@"constructor"] && ![key isEqualToString:@"class"]
                 && ![key hasPrefix:@"__helper__"])
             {
+				id valueAux = nil;
                 switch (self.codeStyle) 
                 {
                     case NibProcessorCodeStyleProperties:
                         [_constuctorCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, value];
+						valueAux = [object objectForKey:key];
+						if ([valueAux isKindOfClass:[OGInstruction class]]) {
+							if (((OGInstruction*)valueAux).localized) {
+								[_localizeCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)valueAux).instruction];
+							}
+						}
+
                         break;
                         
                     case NibProcessorCodeStyleSetter:
                         [_constuctorCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], value];
+						valueAux = [object objectForKey:key];
+						if ([valueAux isKindOfClass:[OGInstruction class]]) {
+							if (((OGInstruction*)valueAux).localized) {
+								[_localizeCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)valueAux).instruction];
+							}
+						}
+						
                         break;
                         
                     default:
@@ -119,9 +146,18 @@
         for (NSString *key in object)
         {
             id value = [object objectForKey:key];
+			if ([value isKindOfClass:[OGInstruction class]]) {
+				value = ((OGInstruction*)value).instruction;
+			}
             if ([key hasPrefix:@"__method__"])
             {
                 [_constuctorCode appendFormat:@"[%@ %@];\n", instanceName, value];
+				id valueAux = [object objectForKey:key];
+				if ([valueAux isKindOfClass:[OGInstruction class]]) {
+					if (((OGInstruction*)valueAux).localized) {
+						[_localizeCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)valueAux).instruction];
+					}
+				}
             }
         }
 
@@ -166,7 +202,7 @@
 		}
     }
 	
-
+	NSLog(@"_localizeCode: %@",_localizeCode);
 
 }
 
@@ -193,6 +229,7 @@
 - (void) dealloc
 {
 	[_constuctorCode release];
+	[_localizeCode release];
 	self.codeStructure = nil;
 	self.fileStructure = nil;
 	[super dealloc];

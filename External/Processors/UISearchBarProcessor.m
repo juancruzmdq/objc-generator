@@ -26,27 +26,27 @@
 {
     if ([item isEqualToString:@"tintColor"])
     {
-        [output setObject:[value colorString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value colorString]] forKey:item];
     }
     else if ([item isEqualToString:@"showsBookmarkButton"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"showsCancelButton"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"showsScopeBar"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"showsSearchResultsButton"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"text"])
     {
-        [output setObject:[value quotedAsCodeString] forKey:item];
+        [output setObject:[OGInstruction initWithStringLocalized:[value quotedAsCodeString]] forKey:item];
     }
     else if ([item isEqualToString:@"scopeButtonTitles"])
     {
@@ -56,19 +56,19 @@
             [string appendFormat:@"@\"%@\", ", element];
         }
         [string appendString:@"nil]"];
-        [output setObject:string forKey:item];
+        [output setObject:[OGInstruction initWithString:string] forKey:item];
     }
     else if ([item isEqualToString:@"placeholder"])
     {
-        [output setObject:[value quotedAsCodeString] forKey:item];
+        [output setObject:[OGInstruction initWithStringLocalized:[value quotedAsCodeString]] forKey:item];
     }
     else if ([item isEqualToString:@"prompt"])
     {
-        [output setObject:[value quotedAsCodeString] forKey:item];
+        [output setObject:[OGInstruction initWithStringLocalized:[value quotedAsCodeString]] forKey:item];
     }
     else if ([item isEqualToString:@"barStyle"])
     {
-        [output setObject:[value barStyleString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value barStyleString]] forKey:item];
     }
     else
     {

@@ -27,23 +27,23 @@
     id object = nil;
     if ([item isEqualToString:@"class"])
     {
-        object = [self getProcessedClassName];
+        object = [OGInstruction initWithString:[self getProcessedClassName]];
     }
     else if ([item isEqualToString:@"title"])
     {
-        object = [value quotedAsCodeString];
+        object = [OGInstruction initWithStringLocalized:[value quotedAsCodeString]];
     }
     else if ([item isEqualToString:@"tag"])
     {
-        object = [value intString];
+        object = [OGInstruction initWithString:[value intString]];
     }
     else if ([item isEqualToString:@"enabled"])
     {
-        object = [value booleanString];
+        object = [OGInstruction initWithString:[value booleanString]];
     }
     else if ([item isEqualToString:@"image"])
     {
-        object = @"nil";
+        object = [OGInstruction initWithString:@"nil"];
     }
     if (object != nil)
     {

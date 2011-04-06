@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "OGInstruction.h";
 
 @interface Processor : NSObject 
 {

@@ -92,7 +92,7 @@
     }
     if (object != nil)
     {
-        [output setObject:object forKey:item];
+        [output setObject:[OGInstruction initWithString:object] forKey:item];
     }
 }
 

@@ -44,11 +44,11 @@
 {
     if ([item isEqualToString:@"style"])
     {
-        [output setObject:[value barButtonItemStyleString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value barButtonItemStyleString]] forKey:item];
     }
     else if ([item isEqualToString:@"width"])
     {
-        [output setObject:[value floatString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value floatString]] forKey:item];
     }
     else
     {

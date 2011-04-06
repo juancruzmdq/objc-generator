@@ -25,7 +25,7 @@
 {
     if ([item isEqualToString:@"on"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

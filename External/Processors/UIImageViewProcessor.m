@@ -27,11 +27,11 @@
     {
         // The image property cannot be retrieved by ibtool, 
         // so here we just add the property with a nil value.
-        [output setObject:@"nil" forKey:@"image"];
+        [output setObject:[OGInstruction initWithString:@"nil"] forKey:@"image"];
     }    
     else if ([item isEqualToString:@"highlighted"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

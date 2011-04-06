@@ -26,11 +26,11 @@
 {
     if ([item isEqualToString:@"tintColor"])
     {
-        [output setObject:[value colorString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value colorString]] forKey:item];
     }
     else if ([item isEqualToString:@"barStyle"])
     {
-        [output setObject:[value barStyleString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value barStyleString]] forKey:item];
     }
     else
     {

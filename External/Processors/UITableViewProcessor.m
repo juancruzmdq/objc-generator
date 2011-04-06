@@ -32,27 +32,27 @@
 {
     if ([item isEqualToString:@"rowHeight"])
     {
-        [output setObject:[value description] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value description]] forKey:item];
     }
     else if ([item isEqualToString:@"sectionFooterHeight"])
     {
-        [output setObject:[value description] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value description]] forKey:item];
     }
     else if ([item isEqualToString:@"sectionHeaderHeight"])
     {
-        [output setObject:[value description] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value description]] forKey:item];
     }
     else if ([item isEqualToString:@"separatorStyle"])
     {
-        [output setObject:[value tableViewCellSeparatorStyleString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value tableViewCellSeparatorStyleString]] forKey:item];
     }
     else if ([item isEqualToString:@"sectionIndexMinimumDisplayRowCount"])
     {
-        [output setObject:[value intString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value intString]] forKey:item];
     }
     else if ([item isEqualToString:@"allowsSelectionDuringEditing"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else
     {

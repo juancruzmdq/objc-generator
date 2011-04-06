@@ -18,6 +18,7 @@ typedef enum {
 	NSMutableDictionary *_codeStructure;
 	NSDictionary * _fileStructure;
 	NSMutableString * _constuctorCode;
+	NSMutableString * _localizeCode;
 }
 @property (nonatomic) NibProcessorCodeStyle codeStyle;
 @property (nonatomic,retain) NSDictionary * fileStructure;

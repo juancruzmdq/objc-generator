@@ -31,14 +31,14 @@
 {
     if ([item isEqualToString:@"hidesWhenStopped"])
     {
-        [output setObject:[value booleanString] forKey:item];
+        [output setObject:[OGInstruction initWithString:[value booleanString]] forKey:item];
     }
     else if ([item isEqualToString:@"animating"])
     {
         BOOL isAnimating = [value boolValue];
 
         NSString *stringOutput = (isAnimating) ? @"startAnimating" : @"stopAnimating";
-        [output setObject:stringOutput forKey:[NSString stringWithFormat:@"__method__%@", item]];
+        [output setObject:[OGInstruction initWithString:stringOutput] forKey:[NSString stringWithFormat:@"__method__%@", item]];
     }
     else
     {
