@@ -13,6 +13,8 @@
 @synthesize codeStyle=_codeStyle;
 @synthesize fileStructure=_fileStructure;
 @synthesize codeStructure=_codeStructure;
+@synthesize generateLocalized;
+
 - (id)init
 {
     if (self = [super init])
@@ -34,6 +36,7 @@
 	
 	[self generateCodeForObject:[self.fileStructure objectForKey:@"com.objc-generator.structure"] withParent:nil];
 	NSLog(@"Creating Constructors code");
+	
 	//Contructor definition
 	[self.codeStructure setObject:[NSString stringWithFormat:@"- (id)init{\n"
 								   @"if ((self = [super init])) {\n"
@@ -113,7 +116,7 @@
                     case NibProcessorCodeStyleProperties:
                         [_constuctorCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)value).instruction];
 
-							if (((OGInstruction*)value).localized) {
+							if (self.generateLocalized && ((OGInstruction*)value).localized) {
 								[_localizeCode appendFormat:@"%@.%@ = %@;\n", instanceName, key, ((OGInstruction*)value).instruction];
 							}
 						
@@ -123,7 +126,7 @@
                     case NibProcessorCodeStyleSetter:
                         [_constuctorCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)value).instruction];
 
-							if (((OGInstruction*)value).localized) {
+							if (self.generateLocalized &&((OGInstruction*)value).localized) {
 								[_localizeCode appendFormat:@"[%@ set%@:%@];\n", instanceName, [key capitalizedString], ((OGInstruction*)value).instruction];
 							}
 
@@ -145,7 +148,7 @@
             {
                 [_constuctorCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)value).instruction];
 
-					if (((OGInstruction*)value).localized) {
+					if (self.generateLocalized &&((OGInstruction*)value).localized) {
 						[_localizeCode appendFormat:@"[%@ %@];\n", instanceName, ((OGInstruction*)value).instruction];
 					}
 
@@ -193,7 +196,7 @@
 		}
     }
 	
-	NSLog(@"_localizeCode: %@",_localizeCode);
+	//NSLog(@"_localizeCode: %@",_localizeCode);
 
 }
 

@@ -114,6 +114,14 @@ int main (int argc, char * argv[]) {
 		codeGenerator.codeStyle = NibProcessorCodeStyleProperties;		
 	}
 	
+	//generate localized code
+	if ([commandLine cL_optionIsSet: @"l"]) {
+		codeGenerator.generateLocalized = TRUE;
+	}else {
+		codeGenerator.generateLocalized = FALSE;		
+	}
+	
+	
 	NSLog(@"Pre-Process CodeGenerator");
 	[codeGenerator process];
 	NSLog(@"Post-Process CodeGenerator");

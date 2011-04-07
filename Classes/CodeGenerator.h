@@ -19,10 +19,12 @@ typedef enum {
 	NSDictionary * _fileStructure;
 	NSMutableString * _constuctorCode;
 	NSMutableString * _localizeCode;
+	BOOL * generateLocalized;
 }
 @property (nonatomic) NibProcessorCodeStyle codeStyle;
 @property (nonatomic,retain) NSDictionary * fileStructure;
 @property (nonatomic,retain) NSMutableDictionary * codeStructure;
+@property (assign) BOOL * generateLocalized;
 
 - (void)process;
 - (NSString *) instanceNameForObject:(NSDictionary *)obj;
