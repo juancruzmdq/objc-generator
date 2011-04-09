@@ -76,6 +76,7 @@
 		filesGenerator.withCodeContructor = TRUE;
 	}
 	
+	filesGenerator.destinationPath = [_fileDef objectForKey:@"destination"];
 	
 	[filesGenerator process];
 	

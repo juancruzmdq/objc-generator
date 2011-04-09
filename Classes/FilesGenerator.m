@@ -14,20 +14,25 @@
 @synthesize headerFile;
 @synthesize bodyFile;
 @synthesize withCodeContructor;
+@synthesize destinationPath;
 
 - (void)process{
 
 	[self createHeaderFile];
 	[self createBodyFile];
 	NSError *error = nil; 
-	[(NSString *)headerFile  writeToFile:[NSString stringWithFormat:@"./_%@.h",[self.variables objectForKey:@"__ViewClassName__"] ] 
+	[(NSString *)headerFile  writeToFile:[NSString stringWithFormat:@"%@/_%@.h",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] 
 							   atomically:TRUE
 								 encoding:NSUTF8StringEncoding
 									error:&error];
-	[(NSString *)bodyFile writeToFile:[NSString stringWithFormat:@"./_%@.m",[self.variables objectForKey:@"__ViewClassName__"] ] 
+	NSLog(@"Header File Created: %@",[NSString stringWithFormat:@"%@/_%@.h",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] );
+	
+	
+	[(NSString *)bodyFile writeToFile:[NSString stringWithFormat:@"%@/_%@.m",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] 
 							atomically:TRUE
 							  encoding:NSUTF8StringEncoding
 								 error:&error];
+	NSLog(@"Body File Created: %@",[NSString stringWithFormat:@"%@/_%@.m",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] );
 	
 	NSLog(@"%@",headerFile);
 	NSLog(@"%@",bodyFile);
@@ -117,6 +122,7 @@
 	self.variables = nil;
 	self.headerFile = nil;
 	self.bodyFile = nil;
+	self.destinationPath = nil;
 	[super dealloc];
 }
 

@@ -21,6 +21,7 @@
 }
 
 -(void)ParseProjectDefinition:(NSString *)_projectDefinitionPath{
+	
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isDirectory = NO;
 	BOOL fileExists = [manager fileExistsAtPath:_projectDefinitionPath isDirectory:&isDirectory];
@@ -95,6 +96,16 @@
 
 		[fileToParse setObject:[fileDef objectForKey:@"xib"] forKey:@"xib"];
 		[fileToParse setObject:[fileDef objectForKey:@"class"] forKey:@"class"];
+		
+		if ([fileDef objectForKey:@"destination"]) {
+			[fileToParse setObject:[fileDef objectForKey:@"destination"] forKey:@"destination"];
+		}else if ([_project objectForKey:@"destination"]){
+			[fileToParse setObject:[_project objectForKey:@"destination"] forKey:@"destination"];
+		}else {
+			NSString * path = [fileDef objectForKey:@"xib"];
+			[fileToParse setObject:[path stringByDeletingLastPathComponent] forKey:@"destination"];
+		}
+
 		
 		NSLog(@"%@",fileToParse);
 		
@@ -185,6 +196,9 @@
 	
 	[fileToParse setObject:[commandLine cL_parameterGetValue: 1] forKey:@"xib"];
 	[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"c"] forKey:@"class"];
+	
+	NSString * path = [commandLine cL_parameterGetValue: 1];
+	[fileToParse setObject:[path stringByDeletingLastPathComponent] forKey:@"destination"];
 	
 	NSLog(@"%@",fileToParse);
 	

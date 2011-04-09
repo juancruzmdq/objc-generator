@@ -14,11 +14,13 @@
 	NSMutableString *headerFile;
 	NSMutableString *bodyFile;
 	BOOL withCodeContructor;
+	NSString * destinationPath;
 }
 @property (nonatomic,retain) NSMutableDictionary *variables;
 @property (nonatomic,retain) NSMutableString *headerFile;
 @property (nonatomic,retain) NSMutableString *bodyFile;
 @property (assign) BOOL withCodeContructor;
+@property (nonatomic,retain) NSString * destinationPath;
 
 - (void) process;
 - (void) createBodyFile;
