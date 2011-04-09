@@ -1,7 +1,7 @@
 *.pbxuser
 *.perspectivev3
 build/*
-TestView/_*
+TestObjcGenerator/build/*
 *.mode1v3
 .svn
 .DS_Store

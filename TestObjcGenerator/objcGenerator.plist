@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>project</key>
+	<string>TestObjcGenerator</string>
+	<key>created_by</key>
+	<string>Juan Cruz Ghigliani</string>
+	<key>creation_date</key>
+	<string>09-ABR-2011</string>
+	<key>company_name</key>
+	<string>Personal</string>
+	<key>inherit</key>
+	<string>UIViewController</string>
+	<key>setters</key>
+	<false/>
+	<key>xib_constructor</key>
+	<true/>
+	<key>localize</key>
+	<true/>
+	<key>views</key>
+	<array>
+		<dict>
+			<key>xib</key>
+			<string>Classes/Views/Main/Main.xib</string>
+			<key>class</key>
+			<string>Main</string>
+			<key>setters</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>xib</key>
+			<string>Classes/Views/Second/Second.xib</string>
+			<key>class</key>
+			<string>Second</string>
+			<key>xib_constructor</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>

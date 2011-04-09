@@ -1,0 +1,3 @@
+After change Main.xib or Second.xib run this command to update the controllers
+
+objc-generator  -t objcGenerator.plist 
