@@ -3,7 +3,7 @@
 //  objc-generator
 //
 //  Created by Juan Cruz Ghigliani on 04/04/11.
-//  Copyright 2011 Tangelo. All rights reserved.
+//  Copyright 2011 Juan Cruz Ghigliani. All rights reserved.
 //
 
 #import "CodeGenerator.h"

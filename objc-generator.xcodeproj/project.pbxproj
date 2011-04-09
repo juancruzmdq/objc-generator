@@ -10,6 +10,8 @@
 		8DD76F9A0486AA7600D96B5E /* objc-generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* objc-generator.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* objc-generator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* objc-generator.1 */; };
+		EE05BAAA134FDF9A0047B07F /* FileGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE05BAA7134FDF9A0047B07F /* FileGenerator.m */; };
+		EE05BAAB134FDF9A0047B07F /* ProjectDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE05BAA9134FDF9A0047B07F /* ProjectDefinitionParser.m */; };
 		EE1F1D83134A5DE100A3B6FF /* CommandLine.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1D82134A5DE100A3B6FF /* CommandLine.m */; };
 		EE1F1F22134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1EE2134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m */; };
 		EE1F1F23134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1EE4134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.m */; };
@@ -68,6 +70,10 @@
 		32A70AAB03705E1F00C91783 /* objc-generator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objc-generator_Prefix.pch"; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* objc-generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "objc-generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* objc-generator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "objc-generator.1"; sourceTree = "<group>"; };
+		EE05BAA6134FDF9A0047B07F /* FileGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileGenerator.h; sourceTree = "<group>"; };
+		EE05BAA7134FDF9A0047B07F /* FileGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileGenerator.m; sourceTree = "<group>"; };
+		EE05BAA8134FDF9A0047B07F /* ProjectDefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDefinitionParser.h; sourceTree = "<group>"; };
+		EE05BAA9134FDF9A0047B07F /* ProjectDefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDefinitionParser.m; sourceTree = "<group>"; };
 		EE1F1D81134A5DE100A3B6FF /* CommandLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLine.h; sourceTree = "<group>"; };
 		EE1F1D82134A5DE100A3B6FF /* CommandLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLine.m; sourceTree = "<group>"; };
 		EE1F1EE1134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Nib2ObjcExtensions.h"; sourceTree = "<group>"; };
@@ -231,6 +237,10 @@
 				EE1F1F50134A9CC000A3B6FF /* CodeGenerator.m */,
 				EE1F1F4C134A9BC200A3B6FF /* FilesGenerator.h */,
 				EE1F1F4D134A9BC200A3B6FF /* FilesGenerator.m */,
+				EE05BAA6134FDF9A0047B07F /* FileGenerator.h */,
+				EE05BAA7134FDF9A0047B07F /* FileGenerator.m */,
+				EE05BAA8134FDF9A0047B07F /* ProjectDefinitionParser.h */,
+				EE05BAA9134FDF9A0047B07F /* ProjectDefinitionParser.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -410,6 +420,8 @@
 				EE1F1F4E134A9BC200A3B6FF /* FilesGenerator.m in Sources */,
 				EE1F1F51134A9CC000A3B6FF /* CodeGenerator.m in Sources */,
 				EE1F233E134CE43B00A3B6FF /* OGInstruction.m in Sources */,
+				EE05BAAA134FDF9A0047B07F /* FileGenerator.m in Sources */,
+				EE05BAAB134FDF9A0047B07F /* ProjectDefinitionParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

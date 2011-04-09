@@ -3,7 +3,7 @@
 //  objc-generator
 //
 //  Created by Juan Cruz Ghigliani on 04/04/11.
-//  Copyright 2011 Tangelo. All rights reserved.
+//  Copyright 2011 Juan Cruz Ghigliani. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,12 +19,12 @@ typedef enum {
 	NSDictionary * _fileStructure;
 	NSMutableString * _constuctorCode;
 	NSMutableString * _localizeCode;
-	BOOL * generateLocalized;
+	BOOL generateLocalized;
 }
 @property (nonatomic) NibProcessorCodeStyle codeStyle;
 @property (nonatomic,retain) NSDictionary * fileStructure;
 @property (nonatomic,retain) NSMutableDictionary * codeStructure;
-@property (assign) BOOL * generateLocalized;
+@property (assign) BOOL generateLocalized;
 
 - (void)process;
 - (NSString *) instanceNameForObject:(NSDictionary *)obj;

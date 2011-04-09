@@ -1,6 +1,6 @@
 h1. objc-generator 
 
-The purpose of this project is to have a tool, that simplifies the daily work on the integration of XIB files, created using the Interface Builder, 
+The purpose of this project is to have a tool, that simplifies the daily work on the integration of XIB files created using the Interface Builder, 
 with the Controllers of the project views.
 
 h2. External Libraries
