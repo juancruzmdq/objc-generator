@@ -1,3 +1,5 @@
 After change Main.xib or Second.xib run this command to update the controllers
 
 objc-generator  -t objcGenerator.plist 
+
+This will update the files _Main.h, _Main.m, _Second.h and _Second.m
