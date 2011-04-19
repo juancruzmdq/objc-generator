@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CommandLine.h"
 
 @interface ProjectDefinitionParser : NSObject {
 
 
 }
 
-
 -(NSDictionary *)loadProjectDefinition:(NSString *)path;
-
--(void)ParseProjectDefinition:(NSString *)_projectDefinitionPath;
--(void)ParseCommandLine:(CommandLine *)commandLine;
+-(void)parseProjectDefinition:(NSString *)_projectDefinitionPath;
+-(void)parse:(NSDictionary *)_parameters;
 
 @end

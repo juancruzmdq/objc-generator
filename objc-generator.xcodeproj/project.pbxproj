@@ -12,7 +12,6 @@
 		8DD76F9F0486AA7600D96B5E /* objc-generator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* objc-generator.1 */; };
 		EE05BAAA134FDF9A0047B07F /* FileGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE05BAA7134FDF9A0047B07F /* FileGenerator.m */; };
 		EE05BAAB134FDF9A0047B07F /* ProjectDefinitionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE05BAA9134FDF9A0047B07F /* ProjectDefinitionParser.m */; };
-		EE1F1D83134A5DE100A3B6FF /* CommandLine.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1D82134A5DE100A3B6FF /* CommandLine.m */; };
 		EE1F1F22134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1EE2134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m */; };
 		EE1F1F23134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1EE4134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.m */; };
 		EE1F1F24134A9A0300A3B6FF /* NSString+Nib2ObjcExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1EE6134A9A0300A3B6FF /* NSString+Nib2ObjcExtensions.m */; };
@@ -49,6 +48,11 @@
 		EE1F1F4E134A9BC200A3B6FF /* FilesGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1F4D134A9BC200A3B6FF /* FilesGenerator.m */; };
 		EE1F1F51134A9CC000A3B6FF /* CodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F1F50134A9CC000A3B6FF /* CodeGenerator.m */; };
 		EE1F233E134CE43B00A3B6FF /* OGInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1F233D134CE43B00A3B6FF /* OGInstruction.m */; };
+		EEA51AE6135C99E90037492E /* objcGeneratorApp.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AE5135C99E90037492E /* objcGeneratorApp.m */; };
+		EEA51AF1135C9A010037492E /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AE9135C9A010037492E /* DDCliApplication.m */; };
+		EEA51AF2135C9A010037492E /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AEB135C9A010037492E /* DDCliParseException.m */; };
+		EEA51AF3135C9A010037492E /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AED135C9A010037492E /* DDCliUtil.m */; };
+		EEA51AF4135C9A010037492E /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,8 +78,6 @@
 		EE05BAA7134FDF9A0047B07F /* FileGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileGenerator.m; sourceTree = "<group>"; };
 		EE05BAA8134FDF9A0047B07F /* ProjectDefinitionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDefinitionParser.h; sourceTree = "<group>"; };
 		EE05BAA9134FDF9A0047B07F /* ProjectDefinitionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDefinitionParser.m; sourceTree = "<group>"; };
-		EE1F1D81134A5DE100A3B6FF /* CommandLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLine.h; sourceTree = "<group>"; };
-		EE1F1D82134A5DE100A3B6FF /* CommandLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLine.m; sourceTree = "<group>"; };
 		EE1F1EE1134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Nib2ObjcExtensions.h"; sourceTree = "<group>"; };
 		EE1F1EE2134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Nib2ObjcExtensions.m"; sourceTree = "<group>"; };
 		EE1F1EE3134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Nib2ObjcExtensions.h"; sourceTree = "<group>"; };
@@ -148,6 +150,17 @@
 		EE1F1F50134A9CC000A3B6FF /* CodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeGenerator.m; sourceTree = "<group>"; };
 		EE1F233C134CE43B00A3B6FF /* OGInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGInstruction.h; path = Helpers/OGInstruction.h; sourceTree = "<group>"; };
 		EE1F233D134CE43B00A3B6FF /* OGInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGInstruction.m; path = Helpers/OGInstruction.m; sourceTree = "<group>"; };
+		EEA51AE4135C99E90037492E /* objcGeneratorApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objcGeneratorApp.h; sourceTree = "<group>"; };
+		EEA51AE5135C99E90037492E /* objcGeneratorApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objcGeneratorApp.m; sourceTree = "<group>"; };
+		EEA51AE8135C9A010037492E /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
+		EEA51AE9135C9A010037492E /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
+		EEA51AEA135C9A010037492E /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
+		EEA51AEB135C9A010037492E /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
+		EEA51AEC135C9A010037492E /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
+		EEA51AED135C9A010037492E /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
+		EEA51AEE135C9A010037492E /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
+		EEA51AEF135C9A010037492E /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
+		EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +193,8 @@
 			children = (
 				32A70AAB03705E1F00C91783 /* objc-generator_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* objc-generator.m */,
+				EEA51AE4135C99E90037492E /* objcGeneratorApp.h */,
+				EEA51AE5135C99E90037492E /* objcGeneratorApp.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -211,20 +226,11 @@
 		EE1F1D7F134A5DE100A3B6FF /* External */ = {
 			isa = PBXGroup;
 			children = (
+				EEA51AE7135C9A010037492E /* ddcli */,
 				EE1F1EE0134A9A0300A3B6FF /* Categories */,
 				EE1F1EE7134A9A0300A3B6FF /* Processors */,
-				EE1F1D80134A5DE100A3B6FF /* CommandLine */,
 			);
 			path = External;
-			sourceTree = "<group>";
-		};
-		EE1F1D80134A5DE100A3B6FF /* CommandLine */ = {
-			isa = PBXGroup;
-			children = (
-				EE1F1D81134A5DE100A3B6FF /* CommandLine.h */,
-				EE1F1D82134A5DE100A3B6FF /* CommandLine.m */,
-			);
-			path = CommandLine;
 			sourceTree = "<group>";
 		};
 		EE1F1E5E134A98C100A3B6FF /* Classes */ = {
@@ -332,6 +338,22 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		EEA51AE7135C9A010037492E /* ddcli */ = {
+			isa = PBXGroup;
+			children = (
+				EEA51AE8135C9A010037492E /* DDCliApplication.h */,
+				EEA51AE9135C9A010037492E /* DDCliApplication.m */,
+				EEA51AEA135C9A010037492E /* DDCliParseException.h */,
+				EEA51AEB135C9A010037492E /* DDCliParseException.m */,
+				EEA51AEC135C9A010037492E /* DDCliUtil.h */,
+				EEA51AED135C9A010037492E /* DDCliUtil.m */,
+				EEA51AEE135C9A010037492E /* DDCommandLineInterface.h */,
+				EEA51AEF135C9A010037492E /* DDGetoptLongParser.h */,
+				EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */,
+			);
+			path = ddcli;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -383,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9A0486AA7600D96B5E /* objc-generator.m in Sources */,
-				EE1F1D83134A5DE100A3B6FF /* CommandLine.m in Sources */,
 				EE1F1F22134A9A0300A3B6FF /* NSDictionary+Nib2ObjcExtensions.m in Sources */,
 				EE1F1F23134A9A0300A3B6FF /* NSNumber+Nib2ObjcExtensions.m in Sources */,
 				EE1F1F24134A9A0300A3B6FF /* NSString+Nib2ObjcExtensions.m in Sources */,
@@ -422,6 +443,11 @@
 				EE1F233E134CE43B00A3B6FF /* OGInstruction.m in Sources */,
 				EE05BAAA134FDF9A0047B07F /* FileGenerator.m in Sources */,
 				EE05BAAB134FDF9A0047B07F /* ProjectDefinitionParser.m in Sources */,
+				EEA51AE6135C99E90037492E /* objcGeneratorApp.m in Sources */,
+				EEA51AF1135C9A010037492E /* DDCliApplication.m in Sources */,
+				EEA51AF2135C9A010037492E /* DDCliParseException.m in Sources */,
+				EEA51AF3135C9A010037492E /* DDCliUtil.m in Sources */,
+				EEA51AF4135C9A010037492E /* DDGetoptLongParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

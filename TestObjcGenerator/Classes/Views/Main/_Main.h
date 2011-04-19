@@ -1,9 +1,9 @@
 //
 //  _Main.h
-//  TestObjcGenerator
+//  
 //
-//  Created by Juan Cruz Ghigliani on 09-ABR-2011.
-//  Copyright 2011 Personal. All rights reserved.
+//  Created by  on .
+//  Copyright 2011 . All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

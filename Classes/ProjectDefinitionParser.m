@@ -13,14 +13,14 @@
 @implementation ProjectDefinitionParser
 
 
-
+ 
 
 -(NSDictionary *)loadProjectDefinition:(NSString *)_path{
 	NSDictionary * res = [[NSMutableDictionary alloc]initWithContentsOfFile:_path];
 	return [res autorelease];
 }
 
--(void)ParseProjectDefinition:(NSString *)_projectDefinitionPath{
+-(void)parseProjectDefinition:(NSString *)_projectDefinitionPath{
 	
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isDirectory = NO;
@@ -107,8 +107,6 @@
 		}
 
 		
-		NSLog(@"%@",fileToParse);
-		
 		[filesToParse addObject:fileToParse];
 	}
 	
@@ -120,15 +118,15 @@
 
 }
 
--(void)ParseCommandLine:(CommandLine *)commandLine{
-	printf("parsing command line\n");
-	
-	if (![commandLine cL_optionIsSet: @"c"]) {
+-(void)parse:(NSDictionary *)_parameters{
+
+	NSMutableDictionary * fileDef = [_parameters mutableCopy];
+	if (([_parameters objectForKey: @"class"]==nil)||
+		[[_parameters objectForKey: @"class"] isEqualToString:@""]) {
 		printf("The parameter c = \"Class\" is required.\n");
 		return;
 	}
-	
-	NSString *nibFile = [commandLine cL_parameterGetValue: 1] ;
+	NSString *nibFile = [_parameters objectForKey:@"xib"] ;
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isDirectory = NO;
 	BOOL fileExists = [manager fileExistsAtPath:nibFile isDirectory:&isDirectory];
@@ -137,74 +135,18 @@
 		printf("obj-generator requires a valid XIB file path as parameter.\n");
 		return;
 	}
-	
-	if ([[commandLine cL_parameterGetValue: 1] isEqualToString:@""]) {
-		printf("obj-generator requires a valid XIB file path as parameter.\n");
+	if ([[_parameters objectForKey:@"xib"] isEqualToString:@""]) {
+		printf("obj-generator requires a valid XIB file path as parameter.The current value is empty.\n");
 		return ;
 	}
-	
-	NSMutableDictionary * fileToParse = [[NSMutableDictionary alloc]init];
-	
-	if ([commandLine cL_optionIsSet: @"p"]) {
-		[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"p"] forKey:@"project"];
-	}else {
-		[fileToParse setObject:@"" forKey:@"project"];
+	if ( ![_parameters objectForKey:@"destination"]||
+		[ [_parameters objectForKey:@"destination"] isEqualToString:@""]) {
+		NSString * path = [_parameters objectForKey:@"xib"];
+		[fileDef setObject:[path stringByDeletingLastPathComponent] forKey:@"destination"];
 	}
-	
-	if ([commandLine cL_optionIsSet: @"b"]) {
-		[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"b"] forKey:@"created_by"];
-	}else{
-		[fileToParse setObject:@"" forKey:@"created_by"];
-	}
-	
-	if ([commandLine cL_optionIsSet: @"d"]) {
-		[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"d"] forKey:@"creation_date"];
-	}else{
-		[fileToParse setObject:@"" forKey:@"creation_date"];
-	}
-	
-	if ([commandLine cL_optionIsSet: @"n"]) {
-		[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"n"] forKey:@"company_name"];
-	}else {
-		[fileToParse setObject:@"" forKey:@"company_name"];
-	}
-	
-	if ([commandLine cL_optionIsSet: @"i"]) {
-		[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"i"] forKey:@"inherit"];
-	}else {
-		[fileToParse setObject:@"" forKey:@"inherit"];
-	}
-	
-	if ([commandLine cL_optionIsSet: @"s"]) {
-		[fileToParse setObject:[NSNumber numberWithBool:TRUE] forKey:@"setters"];
-	}else{
-		[fileToParse setObject:[NSNumber numberWithBool:FALSE] forKey:@"setters"];
-	}
-	
-
-	if ([commandLine cL_optionIsSet: @"x"]) {
-		[fileToParse setObject:[NSNumber numberWithBool:TRUE] forKey:@"xib_constructor"];
-	}else{
-		[fileToParse setObject:[NSNumber numberWithBool:FALSE] forKey:@"xib_constructor"];
-	}
-	
-	if ([commandLine cL_optionIsSet: @"l"]) {
-		[fileToParse setObject:[NSNumber numberWithBool:TRUE] forKey:@"localize"];
-	}else{
-		[fileToParse setObject:[NSNumber numberWithBool:FALSE] forKey:@"localize"];
-	}
-	
-	[fileToParse setObject:[commandLine cL_parameterGetValue: 1] forKey:@"xib"];
-	[fileToParse setObject:[commandLine.parsedCommandLine valueForKey:@"c"] forKey:@"class"];
-	
-	NSString * path = [commandLine cL_parameterGetValue: 1];
-	[fileToParse setObject:[path stringByDeletingLastPathComponent] forKey:@"destination"];
-	
-	NSLog(@"%@",fileToParse);
-	
 	FileGenerator * fg = [[FileGenerator alloc] init];
 	
-	[fg processFileDefinition:fileToParse];
+	[fg processFileDefinition:fileDef];
 	
 	[fg release];
 	
