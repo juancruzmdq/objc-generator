@@ -25,17 +25,19 @@
 							   atomically:TRUE
 								 encoding:NSUTF8StringEncoding
 									error:&error];
-	NSLog(@"Header File Created: %@",[NSString stringWithFormat:@"%@/_%@.h",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] );
+
+	
+	[[OGLoggerManager console] debugWithFormat:@"Header File Created: %@",[NSString stringWithFormat:@"%@/_%@.h",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] ];
 	
 	
 	[(NSString *)bodyFile writeToFile:[NSString stringWithFormat:@"%@/_%@.m",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] 
 							atomically:TRUE
 							  encoding:NSUTF8StringEncoding
 								 error:&error];
-	NSLog(@"Body File Created: %@",[NSString stringWithFormat:@"%@/_%@.m",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] );
+	[[OGLoggerManager console] debugWithFormat:@"Body File Created: %@",[NSString stringWithFormat:@"%@/_%@.m",self.destinationPath,[self.variables objectForKey:@"__ViewClassName__"] ] ];
 	
-	NSLog(@"%@",headerFile);
-	NSLog(@"%@",bodyFile);
+	[[OGLoggerManager console] debug:headerFile];
+	[[OGLoggerManager console] debug:bodyFile];
 
 }
 

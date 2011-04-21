@@ -163,7 +163,6 @@
 		{
 			for (NSDictionary *subitem in children)
 			{
-				NSLog(@"Recursive Loop Item");
 				//continuo recursivo con los hijos	
 				[childrens setObject:[self parseChildren:subitem ofCurrentView:[[subitem objectForKey:@"object-id"] intValue] withObjects:nibObjects]
 							  forKey:[subitem objectForKey:@"object-id"]];
@@ -172,10 +171,10 @@
 		
 		
 		[resultDict setObject:childrens forKey:@"childrens"];
-		
+		[childrens release];
 		return [resultDict autorelease];
 	}
-	
+	[resultDict release];
 	return nil;
 
 
@@ -192,7 +191,6 @@
 	if (processor == nil){
 #ifdef NDEBUG
 		dict = [[NSMutableDictionary alloc] init];
-		NSLog(@"Parsing Debug Class Object");
 		[dict setObject:klass forKey:@"// unknown class"];
 		[_objects setObject:dict forKey:[hierarchy objectForKey:@"object-id"]];
 #endif

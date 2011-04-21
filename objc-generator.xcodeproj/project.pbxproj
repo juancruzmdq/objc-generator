@@ -53,6 +53,10 @@
 		EEA51AF2135C9A010037492E /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AEB135C9A010037492E /* DDCliParseException.m */; };
 		EEA51AF3135C9A010037492E /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AED135C9A010037492E /* DDCliUtil.m */; };
 		EEA51AF4135C9A010037492E /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */; };
+		EEA51D97135DC7A90037492E /* OGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51D96135DC7A90037492E /* OGLogger.m */; };
+		EEA51DBE135DCDAD0037492E /* OGLoggerOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51DBD135DCDAD0037492E /* OGLoggerOutput.m */; };
+		EEA51DC4135DCE8B0037492E /* OGLoggerOutputConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA51DC3135DCE8B0037492E /* OGLoggerOutputConsole.m */; };
+		EEA52191135F2E390037492E /* OGLoggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA52190135F2E390037492E /* OGLoggerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -161,6 +165,14 @@
 		EEA51AEE135C9A010037492E /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
 		EEA51AEF135C9A010037492E /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
+		EEA51D95135DC7A90037492E /* OGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGLogger.h; path = Helpers/OGLogger/OGLogger.h; sourceTree = "<group>"; };
+		EEA51D96135DC7A90037492E /* OGLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGLogger.m; path = Helpers/OGLogger/OGLogger.m; sourceTree = "<group>"; };
+		EEA51DBC135DCDAD0037492E /* OGLoggerOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGLoggerOutput.h; path = Helpers/OGLogger/OGLoggerOutput.h; sourceTree = "<group>"; };
+		EEA51DBD135DCDAD0037492E /* OGLoggerOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGLoggerOutput.m; path = Helpers/OGLogger/OGLoggerOutput.m; sourceTree = "<group>"; };
+		EEA51DC2135DCE8B0037492E /* OGLoggerOutputConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGLoggerOutputConsole.h; path = Helpers/OGLogger/OGLoggerOutputConsole.h; sourceTree = "<group>"; };
+		EEA51DC3135DCE8B0037492E /* OGLoggerOutputConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGLoggerOutputConsole.m; path = Helpers/OGLogger/OGLoggerOutputConsole.m; sourceTree = "<group>"; };
+		EEA5218F135F2E390037492E /* OGLoggerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGLoggerManager.h; path = Helpers/OGLogger/OGLoggerManager.h; sourceTree = "<group>"; };
+		EEA52190135F2E390037492E /* OGLoggerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OGLoggerManager.m; path = Helpers/OGLogger/OGLoggerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +344,7 @@
 		EE1F233B134CE3AB00A3B6FF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EEA51D94135DC77E0037492E /* OGLogger */,
 				EE1F233C134CE43B00A3B6FF /* OGInstruction.h */,
 				EE1F233D134CE43B00A3B6FF /* OGInstruction.m */,
 			);
@@ -352,6 +365,21 @@
 				EEA51AF0135C9A010037492E /* DDGetoptLongParser.m */,
 			);
 			path = ddcli;
+			sourceTree = "<group>";
+		};
+		EEA51D94135DC77E0037492E /* OGLogger */ = {
+			isa = PBXGroup;
+			children = (
+				EEA5218F135F2E390037492E /* OGLoggerManager.h */,
+				EEA52190135F2E390037492E /* OGLoggerManager.m */,
+				EEA51D95135DC7A90037492E /* OGLogger.h */,
+				EEA51D96135DC7A90037492E /* OGLogger.m */,
+				EEA51DBC135DCDAD0037492E /* OGLoggerOutput.h */,
+				EEA51DBD135DCDAD0037492E /* OGLoggerOutput.m */,
+				EEA51DC2135DCE8B0037492E /* OGLoggerOutputConsole.h */,
+				EEA51DC3135DCE8B0037492E /* OGLoggerOutputConsole.m */,
+			);
+			name = OGLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +408,9 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Juan Cruz Ghigliani";
+			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "objc-generator" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -448,6 +479,10 @@
 				EEA51AF2135C9A010037492E /* DDCliParseException.m in Sources */,
 				EEA51AF3135C9A010037492E /* DDCliUtil.m in Sources */,
 				EEA51AF4135C9A010037492E /* DDGetoptLongParser.m in Sources */,
+				EEA51D97135DC7A90037492E /* OGLogger.m in Sources */,
+				EEA51DBE135DCDAD0037492E /* OGLoggerOutput.m in Sources */,
+				EEA51DC4135DCE8B0037492E /* OGLoggerOutputConsole.m in Sources */,
+				EEA52191135F2E390037492E /* OGLoggerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

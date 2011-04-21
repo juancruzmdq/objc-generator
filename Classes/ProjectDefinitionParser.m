@@ -42,6 +42,7 @@
 		if (([fileDef objectForKey:@"class"] == nil)||
 			([[fileDef objectForKey:@"class"] isEqualToString:@"" ])) {
 			printf("The parameter c = \"Class\" is required.\n");
+			[filesToParse release];
 			return;
 		}
 		NSMutableDictionary * fileToParse = [[NSMutableDictionary alloc]init];
@@ -108,6 +109,7 @@
 
 		
 		[filesToParse addObject:fileToParse];
+		[fileToParse release];
 	}
 	
 	FileGenerator * fg = [[FileGenerator alloc] init];
@@ -115,7 +117,7 @@
 		[fg processFileDefinition:fileDef];
 	}
 	[fg release];
-
+	[filesToParse release];
 }
 
 -(void)parse:(NSDictionary *)_parameters{
@@ -124,6 +126,7 @@
 	if (([_parameters objectForKey: @"class"]==nil)||
 		[[_parameters objectForKey: @"class"] isEqualToString:@""]) {
 		printf("The parameter c = \"Class\" is required.\n");
+		[fileDef release];
 		return;
 	}
 	NSString *nibFile = [_parameters objectForKey:@"xib"] ;
@@ -133,10 +136,12 @@
 	if (!fileExists || isDirectory)
 	{
 		printf("obj-generator requires a valid XIB file path as parameter.\n");
+		[fileDef release];
 		return;
 	}
 	if ([[_parameters objectForKey:@"xib"] isEqualToString:@""]) {
 		printf("obj-generator requires a valid XIB file path as parameter.The current value is empty.\n");
+		[fileDef release];
 		return ;
 	}
 	if ( ![_parameters objectForKey:@"destination"]||
@@ -148,6 +153,7 @@
 	
 	[fg processFileDefinition:fileDef];
 	
+	[fileDef release];
 	[fg release];
 	
 }

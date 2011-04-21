@@ -51,7 +51,6 @@
 
 + (Processor *)processorForClass:(NSString *)klass
 {
-	NSLog(@"processorForClass: %@",klass);
     Processor *processor = nil;
 
     if ([klass isEqualToString:@"IBUIView"]) processor = [[UIViewProcessor alloc] init];

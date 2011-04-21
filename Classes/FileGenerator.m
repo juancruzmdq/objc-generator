@@ -21,9 +21,7 @@
 	
 	XibParser *processor = [[XibParser alloc] init];
 	processor.filename = [_fileDef objectForKey:@"xib"];
-	NSLog(@"Pre-Process XibParser");
 	[processor process];
-	NSLog(@"Post-Process XibParser");
 	
 	//***************************************************************
 	//  Create Blocks of code
@@ -38,7 +36,6 @@
 	}else {
 		codeGenerator.codeStyle = NibProcessorCodeStyleProperties;		
 	}
-	NSLog(@"Localize: %@",[_fileDef objectForKey:@"localize"]);
 	//generate localized code
 	if ([[_fileDef objectForKey:@"localize"] boolValue]) {
 		codeGenerator.generateLocalized = TRUE;
@@ -47,9 +44,7 @@
 	}
 	
 	
-	NSLog(@"Pre-Process CodeGenerator");
 	[codeGenerator process];
-	NSLog(@"Post-Process CodeGenerator");
 	
 	//***************************************************************
 	//  Create output files

@@ -11,6 +11,7 @@
 #include "CodeGenerator.h"
 #include "FilesGenerator.h"
 #include "ProjectDefinitionParser.h"
+#include "OGLogger.h"
 
 @implementation objcGeneratorApp
 
@@ -23,7 +24,7 @@
 	_setters = TRUE;
 	_xibConstructor = TRUE;
 	_localized = TRUE;
-	_verbosity = 0;
+	_verbose = @"ERROR";
 	_version = FALSE;
 	_help = FALSE;
 	_className = @"";
@@ -53,6 +54,7 @@
     {
         // Long					Short   Argument options
         {@"version",			'v',    DDGetoptNoArgument},
+		{@"verbose",			'o',    DDGetoptRequiredArgument},
         {@"help",				'h',    DDGetoptNoArgument},
         {@"setters",			's',    DDGetoptNoArgument},
         {@"xib-constructor",	'x',    DDGetoptNoArgument},
@@ -71,18 +73,22 @@
     [optionsParser addOptionsFromTable: optionTable];
 }
 
-- (void) setVerbose: (BOOL) verbose;
-{
-    if (verbose)
-        _verbosity++;
-    else if (_verbosity > 0)
-        _verbosity--;
-}
-
 - (int) application: (DDCliApplication *) app
    runWithArguments: (NSArray *) arguments;
 {
 	
+	if ([_verbose isEqualToString:@"ERROR"]) {
+		[[OGLoggerManager console] setLevel:OGLogLevelError];
+	}else if ([_verbose isEqualToString:@"WARNING"]) {
+		[[OGLoggerManager console] setLevel:OGLogLevelWarning];
+	}else if ([_verbose isEqualToString:@"INFO"]) {
+		[[OGLoggerManager console] setLevel:OGLogLevelInfo];
+	}else if ([_verbose isEqualToString:@"DEBUG"]) {
+		[[OGLoggerManager console] setLevel:OGLogLevelDebug];
+	}else {
+		[[OGLoggerManager console] setLevel:OGLogLevelError];
+	}
+
 	if (_help)
     {
         [self printHelp];
@@ -143,8 +149,8 @@
     [self printUsage: stdout];
     printf("\n"
            "  -h, --help                            Display this help and exit\n"
-           "  -v, --verbose                         Increase verbosity\n"
-           "      --version                         Display version and exit\n"
+           "  -o, --verbose                         Verbose Level ERROR, WARNING, INFO, DEBUG\n"
+           "  -v, --version                         Display version and exit\n"
            "  -s, --setters                         Assign with setters\n"
            "  -x, --xib-constructor                 Constructor with xib\n"
            "  -l, --localized                       Localize text in components\n"

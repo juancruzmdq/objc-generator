@@ -35,7 +35,6 @@
 	
 	
 	[self generateCodeForObject:[self.fileStructure objectForKey:@"com.objc-generator.structure"] withParent:nil];
-	NSLog(@"Creating Constructors code");
 	
 	//Contructor definition
 	[self.codeStructure setObject:[NSString stringWithFormat:@"- (id)init{\n"
@@ -195,8 +194,7 @@
 			[self generateCodeForObject:children withParent:[_parsedStructure objectForKey:parsedView]];
 		}
     }
-	
-	//NSLog(@"_localizeCode: %@",_localizeCode);
+
 
 }
 

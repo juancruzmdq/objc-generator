@@ -17,9 +17,9 @@
     BOOL _setters;
 	BOOL _xibConstructor;
 	BOOL _localized;
-	int  _verbosity;
     BOOL _version;
 	BOOL _help;
+	NSString * _verbose;
 	NSString * _className;
 	NSString * _projectName;
 	NSString * _createBy;
